@@ -51,14 +51,6 @@ module.exports = function (grunt) {
                     code: 'W',
                     server: 'https://nodes.wavesnodes.com'
                 },
-                chrome: {
-                    testnet: {
-                        name: 'chrome_testnet'
-                    },
-                    mainnet: {
-                        name: 'chrome'
-                    }
-                },
                 css: {
                     concat: 'distr/<%= pkg.name %>-styles-<%= pkg.version %>.css',
                     bundle: 'distr/<%= pkg.name %>-styles-<%= pkg.version %>.css'
@@ -235,30 +227,6 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            chrome_mainnet: {
-                src: ['<%= meta.dependencies %>', '<%= meta.application %>'],
-                dest: 'distr/<%= pkg.name %>-<%= meta.configurations.chrome.mainnet.name %>-<%= pkg.version %>.js',
-                options: {
-                    process: function (content, srcPath) {
-                        if (srcPath.endsWith('app.js'))
-                            return replaceMainnetVersion(content);
-
-                        return content;
-                    }
-                }
-            },
-            chrome_testnet: {
-                src: ['<%= meta.dependencies %>', '<%= meta.application %>'],
-                dest: 'distr/<%= pkg.name %>-<%= meta.configurations.chrome.testnet.name %>-<%= pkg.version %>.js',
-                options: {
-                    process: function (content, srcPath) {
-                        if (srcPath.endsWith('app.js'))
-                            return replaceTestnetVersion(content);
-
-                        return content;
-                    }
-                }
-            },
             css: {
                 src: ['<%= meta.stylesheets %>'],
                 dest: '<%= meta.configurations.css.concat %>'
@@ -271,9 +239,7 @@ module.exports = function (grunt) {
             distr: {
                 files: {
                     'distr/<%= pkg.name %>-<%= meta.configurations.testnet.name %>-<%= pkg.version %>.min.js': ['distr/<%= pkg.name %>-<%= meta.configurations.testnet.name %>-<%= pkg.version %>.js'],
-                    'distr/<%= pkg.name %>-<%= meta.configurations.mainnet.name %>-<%= pkg.version %>.min.js': ['distr/<%= pkg.name %>-<%= meta.configurations.mainnet.name %>-<%= pkg.version %>.js'],
-                    'distr/<%= pkg.name %>-<%= meta.configurations.chrome.mainnet.name %>-<%= pkg.version %>.min.js': ['distr/<%= pkg.name %>-<%= meta.configurations.chrome.mainnet.name %>-<%= pkg.version %>.js'],
-                    'distr/<%= pkg.name %>-<%= meta.configurations.chrome.testnet.name %>-<%= pkg.version %>.min.js': ['distr/<%= pkg.name %>-<%= meta.configurations.chrome.testnet.name %>-<%= pkg.version %>.js']
+                    'distr/<%= pkg.name %>-<%= meta.configurations.mainnet.name %>-<%= pkg.version %>.min.js': ['distr/<%= pkg.name %>-<%= meta.configurations.mainnet.name %>-<%= pkg.version %>.js']
                 }
             }
         },
@@ -316,48 +282,6 @@ module.exports = function (grunt) {
                         return content;
                     }
                 }
-            },
-            chrome_mainnet: {
-                files: [
-                    {expand: true, flatten: true, src: '<%= meta.configurations.css.bundle %>', dest: 'distr/<%= meta.configurations.chrome.mainnet.name %>/css'},
-                    {expand: true, src: '<%= meta.licenses %>', dest: 'distr/<%= meta.configurations.chrome.mainnet.name %>'},
-                    {expand: true, cwd: 'src', src: '<%= meta.content %>', dest: 'distr/<%= meta.configurations.chrome.mainnet.name %>'},
-                    {expand: true, flatten: true, src: 'distr/<%= pkg.name %>-<%= meta.configurations.chrome.mainnet.name %>-<%= pkg.version %>.js', dest: 'distr/<%= meta.configurations.chrome.mainnet.name %>/js'},
-                    {expand: true, dest: 'distr/<%= meta.configurations.chrome.mainnet.name %>', flatten: true, src: 'src/chrome/*.*'}
-                ],
-                options: {
-                    process: function (content, srcPath) {
-                        if (srcPath.endsWith('index.html'))
-                            return patchHtml(content,
-                                grunt.template.process('<%= pkg.name %>-<%= meta.configurations.chrome.mainnet.name %>-<%= pkg.version %>.js'));
-
-                        if (srcPath.endsWith('manifest.json'))
-                            return grunt.template.process(content);
-
-                        return content;
-                    }
-                }
-            },
-            chrome_testnet: {
-                files: [
-                    {expand: true, flatten: true, src: '<%= meta.configurations.css.bundle %>', dest: 'distr/<%= meta.configurations.chrome.testnet.name %>/css'},
-                    {expand: true, src: '<%= meta.licenses %>', dest: 'distr/<%= meta.configurations.chrome.testnet.name %>'},
-                    {expand: true, cwd: 'src', src: '<%= meta.content %>', dest: 'distr/<%= meta.configurations.chrome.testnet.name %>'},
-                    {expand: true, flatten: true, src: 'distr/<%= pkg.name %>-<%= meta.configurations.chrome.testnet.name %>-<%= pkg.version %>.js', dest: 'distr/<%= meta.configurations.chrome.testnet.name %>/js'},
-                    {expand: true, dest: 'distr/<%= meta.configurations.chrome.testnet.name %>', flatten: true, src: 'src/chrome/*.*'}
-                ],
-                options: {
-                    process: function (content, srcPath) {
-                        if (srcPath.endsWith('index.html'))
-                            return patchHtml(content,
-                                grunt.template.process('<%= pkg.name %>-<%= meta.configurations.chrome.testnet.name %>-<%= pkg.version %>.js'));
-
-                        if (srcPath.endsWith('manifest.json'))
-                            return grunt.template.process(content);
-
-                        return content;
-                    }
-                }
             }
         },
         compress: {
@@ -372,18 +296,6 @@ module.exports = function (grunt) {
                     archive: 'distr/<%= pkg.name %>-<%= meta.configurations.mainnet.name %>-v<%= pkg.version %>.zip'
                 },
                 files: [{expand: true, cwd: 'distr/<%= meta.configurations.mainnet.name %>', src: '**/*', dest: '/'}]
-            },
-            chrome_mainnet: {
-                options: {
-                    archive: 'distr/<%= pkg.name %>-<%= meta.configurations.chrome.mainnet.name %>-v<%= pkg.version %>.zip'
-                },
-                files: [{expand: true, cwd: 'distr/<%= meta.configurations.chrome.mainnet.name %>', src: '**/*', dest: '/'}]
-            },
-            chrome_testnet: {
-                options: {
-                    archive: 'distr/<%= pkg.name %>-<%= meta.configurations.chrome.testnet.name %>-v<%= pkg.version %>.zip'
-                },
-                files: [{expand: true, cwd: 'distr/<%= meta.configurations.chrome.testnet.name %>', src: '**/*', dest: '/'}]
             }
         },
         bump: {
@@ -430,7 +342,7 @@ module.exports = function (grunt) {
         },
         "github-release": {
             options: {
-                repository : "wavesplatform/WavesGUI",
+                repository : "wavesplatform/UpcoinWallet",
                 auth: {
                     user: process.env["GITHUB_ACCESS_TOKEN"],
                     password: ''
@@ -446,23 +358,6 @@ module.exports = function (grunt) {
             files: {
                 expand: true,
                 src: ['<%= compress.testnet.options.archive %>', '<%= compress.mainnet.options.archive %>']
-            }
-        },
-        webstore_upload: {
-            "accounts": {
-                "default": { //account under this section will be used by default
-                    publish: false, //publish item right after uploading. default false
-                    client_id: process.env["WEBSTORE_CLIENT_ID"],
-                    client_secret: ""
-                }
-            },
-            "extensions": {
-                "WavesLiteApp": {
-                    //required
-                    appID: "kfmcaklajknfekomaflnhkjjkcjabogm",
-                    //required, we can use dir name and upload most recent zip file
-                    zip: "<%= compress.chrome_mainnet.options.archive %>"
-                }
             }
         },
         s3: {
@@ -522,7 +417,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('waves-grunt-github-releaser');
-    grunt.loadNpmTasks('grunt-webstore-upload');
     grunt.loadNpmTasks('grunt-aws');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-karma');
@@ -534,7 +428,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('distr', ['clean', 'build', 'emptyChangelog', 'copy', 'compress']);
     grunt.registerTask('publish', ['bump', 'distr', 'conventionalChangelog', 'shell', 'github-release']);
-    grunt.registerTask('deploy', ['webstore_upload', 's3']);
+    grunt.registerTask('deploy', ['s3']);
     grunt.registerTask('test', ['jshint', 'jscs', 'karma:development']);
     grunt.registerTask('build', [
         'jscs',
