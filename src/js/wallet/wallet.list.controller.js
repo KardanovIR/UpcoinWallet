@@ -21,19 +21,14 @@
 
         walletList.wallets = [
             {
-                balance: new Money(0, Currency.USD)
-            },
-            {
                 balance: new Money(0, Currency.EUR)
             },
             {
                 balance: new Money(0, Currency.BTC)
             },
             {
-                balance: new Money(0, Currency.WAV)
-            },
-            {
-                balance: new Money(0, Currency.CNY)
+                balance: new Money(0, Currency.WAV),
+                hidden: true
             }
         ];
         walletList.transactions = [];
