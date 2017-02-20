@@ -572,7 +572,7 @@ header {
 
 #logoNversion2 {
     position: absolute;
-    top: .75rem;
+    top: 2rem;
     left: 1.3rem;
     width: 8rem;
     z-index: 99;
@@ -716,6 +716,7 @@ span.tabs-radio img.selected {
 
 #mainBody {
     overflow-y: scroll;
+    background: url(../img/wallet_bgr.jpg);
 }
 
 
@@ -789,6 +790,7 @@ span.tabs-radio img.selected {
     padding: 10px;
     border-radius: 20px 20px 20px 20px;
     overflow: hidden;
+    background: #ffffff;
 }
 
 .walletBox img {
