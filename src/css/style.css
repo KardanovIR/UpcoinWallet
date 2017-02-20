@@ -158,8 +158,6 @@ body {
 }
 
 .sectionHeader {
-    background-color: #ffffff;
-    border: 0px solid #F0F0F0;
     text-align: center;
     font-size: 1.25rem;
     color: #333333;
@@ -323,7 +321,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #37556E;
+    background: #0a61a9;
     z-index: 1;
 }
 
@@ -557,7 +555,7 @@ header {
     position: relative;
     width: 100%;
     height: 50px;
-    background: #37556E;
+    background: #0a61a9;
     z-index: 101;
 }
 
@@ -650,7 +648,7 @@ header {
     position: relative;
     width: 100%;
     height: 65px;
-    background: #37556E;
+    background: #0a61a9;
     box-shadow: 0px 12px 12px -12px rgba(0, 0, 0, .25);
     z-index: 100;
 }
@@ -808,7 +806,7 @@ span.tabs-radio img.selected {
     z-index: 100 !important;
     font-family: 'Engo';
     font-size: 2.5rem;
-    color: #37556E;
+    color: #0a61a9;
 }
 
 .wB-add {
@@ -833,7 +831,7 @@ span.tabs-radio img.selected {
     font-family: 'Sparta', Arial;
     font-weight: bold;
     font-size: 2.5rem;
-    color: #37556E;
+    color: #0a61a9;
 }
 
 .wB-balDec {
@@ -845,7 +843,7 @@ span.tabs-radio img.selected {
     font-family: 'Sparta', Arial;
     font-weight: bold;
     font-size: 1.75rem;
-    color: #37556E;
+    color: #0a61a9;
     line-height: .5;
     letter-spacing: -2px;
     opacity: .5;
@@ -924,7 +922,7 @@ span.tabs-radio img.selected {
     width: 32.4%;
     height: 80%;
     margin: .45%;
-    background: #37556E;
+    background: #0a61a9;
     overflow: hidden;
     font-family: 'Wesli';
     font-size: 1rem;
@@ -986,7 +984,7 @@ span.tabs-radio img.selected {
 }
 
 .wavesTable thead {
-    background-color: #37556E;
+    background-color: #0a61a9;
     border: 0px solid #F0F0F0;
     text-align: center;
     font-size: 1.12rem;
@@ -1133,12 +1131,12 @@ span.tabs-radio img.selected {
 
 #addContactSubmit {
     background: #fff;
-    color: #37556E;
-    border: 1px solid #37556E;
+    color: #0a61a9;
+    border: 1px solid #0a61a9;
 }
 
 #addContactSubmit:hover {
-    background: #37556E;
+    background: #0a61a9;
     color: #fff;
 }
 
@@ -1190,22 +1188,22 @@ span.tabs-radio img.selected {
 }
 
 .wButton-neg {
-    border: 1px solid #37556E;
-    color: #37556E;
+    border: 1px solid #0a61a9;
+    color: #0a61a9;
 }
 
 .wButton-neg:hover {
-    background: #37556E;
+    background: #0a61a9;
     color: #ffffff;
 }
 
 .wButton-dialog {
-    border: 1px solid #37556E;
-    color: #37556E;
+    border: 1px solid #0a61a9;
+    color: #0a61a9;
 }
 
 .wButton-dialog:hover {
-    background: #37556E;
+    background: #0a61a9;
     color: #ffffff;
 }
 
@@ -1235,13 +1233,13 @@ span.tabs-radio img.selected {
 #addContactSubmit,
 #close_create_account_modal {
     background: #fff;
-    color: #37556E;
-    border: 1px solid #37556E;
+    color: #0a61a9;
+    border: 1px solid #0a61a9;
 }
 
 #addContactSubmit:hover,
 #close_create_account_modal:hover {
-    background: #37556E;
+    background: #0a61a9;
     color: #fff;
 }
 
@@ -1251,7 +1249,7 @@ span.tabs-radio img.selected {
 }
 
 #transactionHistorySearch {
-    background: #37556E;
+    background: #0a61a9;
     color: #fff;
 }
 
@@ -1263,7 +1261,7 @@ span.tabs-radio img.selected {
 /* Payment forms BUTTONS style */
 
 .paymentForm-but {
-    border: 1px solid #37556E;
+    border: 1px solid #0a61a9;
     outline: none;
     position: relative;
     margin: 0 auto;
@@ -1273,13 +1271,13 @@ span.tabs-radio img.selected {
     background: #fff;
     font-family: 'Wesli';
     font-size: 1rem;
-    color: #37556E;
+    color: #0a61a9;
     text-align: center;
 }
 
 .paymentForm-but:hover {
     cursor: pointer;
-    background: #37556E;
+    background: #0a61a9;
     color: #fff;
 }
 
@@ -1297,7 +1295,7 @@ md-autocomplete.fee-autocomplete button {
 }
 
 md-autocomplete.fee-autocomplete button md-icon path {
-    fill: #37556E;
+    fill: #0a61a9;
 }
 
 md-autocomplete.fee-autocomplete button:hover md-icon path {
@@ -1368,7 +1366,7 @@ md-autocomplete.fee-autocomplete button:hover md-icon path {
 }
 
 .paymentForm thead tr {
-    background-color: #37556E;
+    background-color: #0a61a9;
     text-align: center;
     font-size: 1.12rem;
     line-height: 2.3rem;
@@ -1519,7 +1517,7 @@ md-autocomplete.fee-autocomplete button:hover md-icon path {
     margin-bottom: .5rem;
     padding-left: .5rem;
     padding-right: .5rem;
-    background: #37556E;
+    background: #0a61a9;
     font-family: 'Wesli';
     font-size: 1rem;
     line-height: 2.3rem;
@@ -1554,7 +1552,7 @@ md-progress-linear .md-container {
 }
 
 md-progress-linear .md-bar {
-    background-color: #37556E;
+    background-color: #0a61a9;
 }
 
 
