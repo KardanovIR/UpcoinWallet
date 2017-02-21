@@ -7,16 +7,16 @@
             var result = {
                 fees: [
                     {
-                        amount: 0.001,
-                        displayText: '0.001 WAVE (Economic)'
+                        amount: 0.01,
+                        displayText: '0.01 Upcoin (Economic)'
                     },
                     {
-                        amount: 0.0015,
-                        displayText: '0.0015 WAVE (Standard)'
+                        amount: 0.02,
+                        displayText: '0.02 Upcoin (Standard)'
                     },
                     {
-                        amount: 0.002,
-                        displayText: '0.002 WAVE (Premium)'
+                        amount: 0.03,
+                        displayText: '0.03 Upcoin (Premium)'
                     }
                 ],
                 selectedFee: undefined,
