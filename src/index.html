@@ -388,7 +388,7 @@
                     </div>
 
 
-                    <div class="flex-container">
+                    <div class="flex-container walletBoxes">
                         <wallet-box class="walletBox" ng-repeat="w in walletList.wallets | filter:{hidden:'!'}" balance="w.balance" on-send="walletList.send(currency)"
                                     on-withdraw="walletList.withdraw(currency)" on-trade="walletList.trade(currency)"></wallet-box>
                     </div>

@@ -774,6 +774,10 @@ span.tabs-radio img.selected {
     flex-wrap: wrap;
 }
 
+.walletBoxes {
+    margin-bottom: 100px;
+}
+
 .walletBox {
     position: relative;
     -webkit-box-flex: 1;
@@ -933,7 +937,7 @@ span.tabs-radio img.selected {
 
 .wB-but:hover {
     cursor: pointer;
-    background: #E1B47D;
+    background: #0a86d9;
 }
 
 .wB-butSend {
@@ -1254,7 +1258,7 @@ span.tabs-radio img.selected {
 }
 
 #transactionHistorySearch:hover {
-    background: #E1B47D;
+    background: #0a86d9;
 }
 
 
