@@ -559,15 +559,6 @@ header {
     z-index: 101;
 }
 
-#topLogoH {
-    display: none;
-    position: absolute;
-    top: .5rem;
-    left: 1rem;
-    width: 12rem;
-    z-index: 99;
-}
-
 #logoNversion2 {
     position: absolute;
     top: 2rem;
@@ -1745,12 +1736,6 @@ md-progress-linear .md-bar {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 1024px) {
-    #logoNversion2 {
-        display: none;
-    }
-    #topLogoH {
-        display: block;
-    }
     #version {
         font-size: 1rem;
     }
@@ -1859,9 +1844,8 @@ md-progress-linear .md-bar {
         height: 30px;
         padding: 0;
     }
-    #topLogoH {
-        width: 10rem;
-        margin-top: .25rem;
+    #logoNversion2 {
+        top: 1.2rem;
     }
     #header-Iconset {
         position: absolute;
@@ -1935,10 +1919,6 @@ md-progress-linear .md-bar {
     .wavesTable td {
         padding-left: .2rem;
         padding-right: .2rem;
-    }
-    #topLogoH {
-        width: 10rem;
-        margin-top: .38rem;
     }
     .header-Icon {
         width: 1.5rem;
