@@ -56,7 +56,7 @@ Waves' palette: #0096DC                             Waves' blue *
 }
 
 body {
-    font-family: "Wesli";
+    font-family: "Verdana", sans-serif;
     color: #333333;
     background: #ffffff;
     overflow: hidden;
@@ -339,7 +339,7 @@ body {
 #networkCheck {
     width: 100%;
     color: #ffffff;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-weight: 200;
     font-size: 1.25rem;
     margin-top: 1rem;
@@ -398,6 +398,7 @@ body {
 }
 
 .testnet {
+    font-family: "Wesli", "Verdana", sans-serif;
     color: #E1B47D !important;
 }
 
@@ -557,15 +558,6 @@ header {
     height: 50px;
     background: #0a61a9;
     z-index: 101;
-}
-
-#topLogoH {
-    display: none;
-    position: absolute;
-    top: .5rem;
-    left: 1rem;
-    width: 12rem;
-    z-index: 99;
 }
 
 #logoNversion2 {
@@ -774,6 +766,10 @@ span.tabs-radio img.selected {
     flex-wrap: wrap;
 }
 
+.walletBoxes {
+    margin-bottom: 100px;
+}
+
 .walletBox {
     position: relative;
     -webkit-box-flex: 1;
@@ -816,7 +812,7 @@ span.tabs-radio img.selected {
     text-align: right;
     float: right;
     z-index: 100 !important;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     color: #D7D7D7;
 }
@@ -919,12 +915,12 @@ span.tabs-radio img.selected {
 .wB-but {
     display: inline-block;
     position: relative;
-    width: 32.4%;
+    width: 100%;
     height: 80%;
     margin: .45%;
     background: #0a61a9;
     overflow: hidden;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     color: #ffffff;
     border: none;
@@ -933,11 +929,11 @@ span.tabs-radio img.selected {
 
 .wB-but:hover {
     cursor: pointer;
-    background: #E1B47D;
+    background: #0a86d9;
 }
 
 .wB-butSend {
-    border-radius: 2px 2px 2px 16px;
+    border-radius: 2px 2px 16px 16px;
 }
 
 .wB-butRec {
@@ -949,11 +945,10 @@ span.tabs-radio img.selected {
 }
 
 .wB-but p {
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
+    margin: 0 -50% 0 0;
     -webkit-transform: translate(-50%, -55%);
     transform: translate(-50%, -55%);
 }
@@ -1023,7 +1018,7 @@ span.tabs-radio img.selected {
 
 .wavesTable input[type="search"],
 .paymentForm input[type="search"] {
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     padding: .3rem
 }
@@ -1111,7 +1106,7 @@ span.tabs-radio img.selected {
     padding-right: .8rem;
     background: none;
     overflow: hidden;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     color: #ffffff;
     border: 1px solid #ffffff;
@@ -1172,7 +1167,7 @@ span.tabs-radio img.selected {
     padding: .2rem;
     padding-left: .4rem;
     padding-right: .4rem;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     color: #ffffff;
     outline: none;
@@ -1254,7 +1249,7 @@ span.tabs-radio img.selected {
 }
 
 #transactionHistorySearch:hover {
-    background: #E1B47D;
+    background: #0a86d9;
 }
 
 
@@ -1269,7 +1264,7 @@ span.tabs-radio img.selected {
     padding-left: .5rem;
     padding-right: .5rem;
     background: #fff;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     color: #0a61a9;
     text-align: center;
@@ -1312,7 +1307,7 @@ md-autocomplete.fee-autocomplete button:hover md-icon path {
 /* WAVES STANDARD INPUTS */
 
 .wInput {
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     padding: .25rem;
     margin-top: .25rem;
@@ -1384,7 +1379,7 @@ md-autocomplete.fee-autocomplete button:hover md-icon path {
 .form-control {
     width: 100%;
     padding: .3rem;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
 }
 
@@ -1463,14 +1458,14 @@ md-autocomplete.fee-autocomplete button:hover md-icon path {
 .custom-combobox-input {
     margin: 0;
     padding: .25rem;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-style: italic;
     color: #999999;
     padding-right: -.25rem;
 }
 
 .ui-menu.ui-autocomplete {
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-style: italic;
     color: #999999;
 }
@@ -1518,7 +1513,7 @@ md-autocomplete.fee-autocomplete button:hover md-icon path {
     padding-left: .5rem;
     padding-right: .5rem;
     background: #0a61a9;
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1rem;
     line-height: 2.3rem;
     color: #ffffff;
@@ -1577,7 +1572,7 @@ md-progress-linear .md-bar {
 }
 
 .wavesDD select {
-    font-family: 'Wesli';
+    font-family: "Verdana", sans-serif;
     font-size: 1.15rem;
     padding: .1rem;
 }
@@ -1686,7 +1681,7 @@ md-progress-linear .md-bar {
 }
 
 #massPaymentFilesForm input[type="file"] {
-    font-family: "Wesli";
+    font-family: "Verdana", sans-serif;
 }
 
 
@@ -1741,12 +1736,6 @@ md-progress-linear .md-bar {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 1024px) {
-    #logoNversion2 {
-        display: none;
-    }
-    #topLogoH {
-        display: block;
-    }
     #version {
         font-size: 1rem;
     }
@@ -1855,9 +1844,8 @@ md-progress-linear .md-bar {
         height: 30px;
         padding: 0;
     }
-    #topLogoH {
-        width: 10rem;
-        margin-top: .25rem;
+    #logoNversion2 {
+        top: 1.2rem;
     }
     #header-Iconset {
         position: absolute;
@@ -1932,10 +1920,6 @@ md-progress-linear .md-bar {
         padding-left: .2rem;
         padding-right: .2rem;
     }
-    #topLogoH {
-        width: 10rem;
-        margin-top: .38rem;
-    }
     .header-Icon {
         width: 1.5rem;
         margin-right: .35rem;
@@ -1962,7 +1946,7 @@ md-progress-linear .md-bar {
         margin-bottom: -3px;
     }
     #massPaymentFilesForm input[type="file"] {
-        font-family: "Wesli";
+        font-family: "Verdana", sans-serif;
         font-size: 0.9rem;
     }
 }

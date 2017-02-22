@@ -17,9 +17,9 @@
             },
             messages: {
                 walletSeed: {
-                    required: 'Wallet seed is required',
-                    minlength: 'Wallet seed is too short. A secure wallet seed should contain more than ' +
-                       SEED_MINIMUM_LENGTH + ' characters'
+                    required: 'SEED кошелька обязателен',
+                    minlength: 'SEED кошелька слишком короткий. Безопасный SEED должен содержать более, чем ' +
+                       SEED_MINIMUM_LENGTH + ' символов'
                 }
             }
         };

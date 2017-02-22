@@ -62,26 +62,26 @@
                     '<md-menu-item>' +
                         '<md-button ngclipboard data-clipboard-text="{{::$ctrl.transaction.sender}}" ' +
                             'ngclipboard-success="$ctrl.addressCopied()">' +
-                            '<span md-menu-align-target>Copy sender address</span>' +
+                            '<span md-menu-align-target>Копировать адрес отправителя</span>' +
                         '</md-button>' +
                     '</md-menu-item>' +
                     '<md-menu-item>' +
                         '<md-button ng-disabled="!$ctrl.hasRecipient()" ngclipboard ' +
                             'data-clipboard-text="{{::$ctrl.transaction.recipient}}" ' +
                             'ngclipboard-success="$ctrl.addressCopied()">' +
-                            '<span md-menu-align-target>Copy recipient address</span>' +
+                            '<span md-menu-align-target>Копировать адрес получателя</span>' +
                         '</md-button>' +
                     '</md-menu-item>' +
                     '<md-menu-item>' +
                         '<md-button ngclipboard data-clipboard-text="{{::$ctrl.transaction.id}}" ' +
                             'ngclipboard-success="$ctrl.idCopied()">' +
-                            '<span md-menu-align-target>Copy TX ID</span>' +
+                            '<span md-menu-align-target>Копировать TX ID</span>' +
                         '</md-button>' +
                     '</md-menu-item>' +
                     '<md-menu-item>' +
                         '<md-button ngclipboard ngclipboard-text-provider="$ctrl.fullTransactionData()" ' +
                             'ngclipboard-success="$ctrl.dataCopied()">' +
-                            '<span md-menu-align-target>Copy full TX data</span>' +
+                            '<span md-menu-align-target>Копировать все данные TX</span>' +
                         '</md-button>' +
                     '</md-menu-item>' +
                 '</md-menu-content>' +

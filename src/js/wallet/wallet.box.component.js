@@ -60,12 +60,6 @@
                     '<a ng-click="$ctrl.onSend({currency: $ctrl.balance.currency})">' +
                         '<div class="wB-but wB-butSend fade"><p>SEND</p></div>' +
                     '</a>' +
-                    '<a ng-click="$ctrl.onWithdraw({currency: $ctrl.balance.currency})">' +
-                        '<div class="wB-but wB-butRec fade"><p>WITHDRAW</p></div>' +
-                    '</a>' +
-                    '<a ng-click="$ctrl.onTrade({currency: $ctrl.balance.currency})">' +
-                        '<div class="wB-but wB-butTrade fade"><p>TRADE</p></div>' +
-                    '</a>' +
                 '</div>'
         });
 })();

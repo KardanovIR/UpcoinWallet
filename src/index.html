@@ -19,7 +19,7 @@
 <html ng-app="app" ng-csp>
 <head>
     <meta charset="utf-8">
-    <title>Waves Lite Client</title>
+    <title>Upcoin Wallet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS BEGIN -->
     <link rel="stylesheet" href="../bower_components/angular/angular-csp.css">
@@ -63,19 +63,19 @@
                         <h2 id="AccHeader">{{accounts.caption}}</h2>
                         <div class="wavesAccounts" ng-controller="accountListController as list" ng-show="accounts.mode === 'list'">
                             <p class="loginAccountDiv" ng-repeat="account in list.accounts track by account.address">
-                                    <span class="loginAccount fade" tooltipster tooltip-theme="tooltipster-theme1" title="Log into this account." ng-click="list.signIn(account)"> <br/>
+                                    <span class="loginAccount fade" tooltipster tooltip-theme="tooltipster-theme1" title="Войти в этот аккаунт" ng-click="list.signIn(account)"> <br/>
                                         <b>{{::account.name}}</b> <span class="divider-1"></span> <small>{{::account.address}}</small>
                                     </span>
-                                <span class="clipSpan" tooltipster tooltip-theme="tooltipster-theme1" ngclipboard title="Copy this address to the clipboard." data-clipboard-text="{{::account.address}}" ngclipboard-success="clipboardOk()"></span>
+                                <span class="clipSpan" tooltipster tooltip-theme="tooltipster-theme1" ngclipboard title="Скопировать этот адрес в буфер обмена" data-clipboard-text="{{::account.address}}" ngclipboard-success="clipboardOk()"></span>
                                 <span class="divider-1"></span>
-                                <button class="removeAccount wButtonAlt fade" tooltipster tooltip-theme="tooltipster-theme1" title="Remove this account from the list." ng-click="list.showRemoveWarning(account)">
-                                    <span class="wButton-icon"><img src="img/wIcon_x.svg"></span>REMOVE
+                                <button class="removeAccount wButtonAlt fade" tooltipster tooltip-theme="tooltipster-theme1" title="Удалить этот аккаунт из списка" ng-click="list.showRemoveWarning(account)">
+                                    <span class="wButton-icon"><img src="img/wIcon_x.svg"></span>УДАЛИТЬ
                                 </button>
                             </p>
 
-                            <button id="import_account" class="wButton fade" tooltipster tooltip-theme="tooltipster-theme1" title="Click here to import an existing account." ng-click="list.importAccount()">IMPORT ACCOUNT</button>
+                            <button id="import_account" class="wButton fade" tooltipster tooltip-theme="tooltipster-theme1" title="Нажмите, чтобы импортировать существующий аккаунт" ng-click="list.importAccount()">ИМПОРТИРОВАТЬ АККАУНТ</button>
                             <span class="divider-1"></span>
-                            <button id="create_account" class="wButton fade" tooltipster tooltip-theme="tooltipster-theme1" title="Click here to create a brand new account." ng-click="list.createAccount()">NEW ACCOUNT</button>
+                            <button id="create_account" class="wButton fade" tooltipster tooltip-theme="tooltipster-theme1" title="Нажмите, чтобы создать новый аккаунт" ng-click="list.createAccount()">НОВЫЙ АККАУНТ</button>
                             <br/>
 
                             <!-- Remove Account popup -->
@@ -92,56 +92,56 @@
                         <div id="create-seed" ng-controller="accountSeedController as vm" ng-show="accounts.mode === 'create-seed'">
                             <form id="account-seed-form" name="accountSeedForm" ng-submit="vm.checkSeedAndRegister(accountSeedForm)" novalidate ng-validate="vm.validationOptions">
 
-                                <button id="generateRandomSeed" class="wButton fade" ng-click="vm.generateSeed()" type="button">GENERATE NEW SEED</button>
+                                <button id="generateRandomSeed" class="wButton fade" ng-click="vm.generateSeed()" type="button">СГЕНЕРИРОВАТЬ НОВЫЙ SEED</button>
                                 <br/><br/>
                                 <div class="form-field">
-                                <label for="walletSeed">WALLET SEED</label>
+                                <label for="walletSeed">SEED КОШЕЛЬКА</label>
                                     <br/>
                                     <textarea id="walletSeed" rows="3" name="walletSeed" class="wInput" focus-me="accounts.mode === 'create-seed'" ng-model="vm.seed" ng-change="vm.refreshAddress()" ng-model-options="{ debounce: 750 }" ng-trim="false"></textarea>
-                                    <span class="clipSpan" tooltipster tooltip-theme="tooltipster-theme1" title="Copy the seed to the clipboard." data-clipboard-target="#walletSeed" data-clipboard-message-success="Wallet seed has been successfully copied to clipboard" ></span>
+                                    <span class="clipSpan" tooltipster tooltip-theme="tooltipster-theme1" title="Скопировать SEED в буфер обмена" data-clipboard-target="#walletSeed" data-clipboard-message-success="Wallet seed has been successfully copied to clipboard" ></span>
                                     <br/>
                                 </div>
                                 <br/>
 
                                 <div class="wPop-content">
-                                    <div>ADDRESS
+                                    <div>АДРЕС
                                         <br/>
                                         <span>{{vm.displayAddress}}</span>
                                     </div>
                                 </div>
-                                <button class="wButton fade" type="submit">REGISTER ACCOUNT</button>
+                                <button class="wButton fade" type="submit">ЗАРЕГИСТРИРОВАТЬ АККАУНТ</button>
                                 <span class="divider-2"></span>
-                                <button class="wButton fade" type="reset" ng-click="vm.back()">BACK</button>
+                                <button class="wButton fade" type="reset" ng-click="vm.back()">НАЗАД</button>
 
-                                <div id="seed-whitespace-popup" waves-dialog on-dialog-ok="vm.registerAccount()" closeable="false" ok-button-caption="PROCEED">
-                                    <h2 class="sectionHeader">SEED NOTICE</h2>
-                                    <p class="dialog-text">Your wallet seed contains one or more trailing whitespace characters.</p>
-                                    <p class="dialog-text">A seed with a whitespace at the end and a seed without one are different, and will result in different addresses generated.</p>
-                                    <p class="dialog-text">It is strongly recommended that you avoid trailing whitespaces in the seed. If you understand the implications of including a trailing whitespace
-                                        in your seed, press <b>PROCEED</b>. Press <b>CANCEL</b> or close the dialog box to edit your seed.<br/></p>
+                                <div id="seed-whitespace-popup" waves-dialog on-dialog-ok="vm.registerAccount()" closeable="false" ok-button-caption="ПРОДОЛЖИТЬ" cancel-button-caption="ОТМЕНА">
+                                    <h2 class="sectionHeader">ВНИМАНИЕ: SEED</h2>
+                                    <p class="dialog-text">Ваш SEED содержит один или несколько пробелов в начале или конце.</p>
+                                    <p class="dialog-text">SEED с пробелом с краю и без него — разные, и адреса, полученные из них, также будут различаться.</p>
+                                    <p class="dialog-text">Крайне рекомендуется избегать крайних пробелов в SEED. Если вы понимаете последствия включения крайних пробелов в ваш SEED,
+                                        нажмите <b>ПРОДОЛЖИТЬ</b>. Нажмите <b>ОТМЕНА</b> или закройте диалоговое окно, чтобы отредактировать ваш SEED.<br/></p>
                                 </div>
                             </form>
                         </div>
 
-                        <div id="login-wPop-new" waves-dialog ok-button-caption="I UNDERSTAND" on-dialog-ok="" cancel-button-visible="false" closeable="false">
-                            <h2 class="sectionHeader">NEW ACCOUNT - NOTICE</h2>
-                            <p class="dialog-text">This feature involves the creation of a new account on Waves platform.</p>
-                            <p class="dialog-text">The procedure consists of complex cryptographic operations that use a <b>SEED</b> (a series of random words) to create a unique address for your account.</p>
-                            <p class="dialog-text">This SEED is extremely important and must be kept in safe place, since it's the only way to recover your account in case of lost, corrupted data or hardware failure.</p>
-                            <p class="dialog-text">Your SEED will also allow you to IMPORT your account to other devices.
+                        <div id="login-wPop-new" waves-dialog ok-button-caption="Я ПОНИМАЮ" on-dialog-ok="" cancel-button-visible="false" closeable="false">
+                            <h2 class="sectionHeader">ВНИМАНИЕ: НОВЫЙ АККАУНТ</h2>
+                            <p class="dialog-text">Вы собираетесь создать новый аккаунт.</p>
+                            <p class="dialog-text">Процедура включает в себя сложные криптографические операции, использующие <b>SEED</b> (последовательность случайных слов) для создания уникального адреса вашего аккаунта.</p>
+                            <p class="dialog-text">SEED крайне важен и должен храниться в безопасном месте, поскольку это единственный способ восстановить ваш аккаунт в случае его потери, повреждённых данных или оборудования.</p>
+                            <p class="dialog-text">Ваш SEED также позволит вам ИМПОРТИРОВАТЬ ваш аккаунт на другие устройства (следовательно, никто, кроме вас, не должен его видеть).
                             <br/><br/>
-                            <i>NOTE: Make sure that you select the entire SEED length before keeping it. It's suggested to use the copy-to-clipboard button located the right side of the SEED box.</i></p>
+                            <i>ВАЖНО: Удостоверьтесь, что вы выбрали SEED целиком, прежде чем копировать и сохранить его. Предлагается использовать кнопку для копирования в буфер обмена, которая расположена справа от поля с SEED.</i></p>
                         </div>
 
                         <!-- store account on the current device -->
                         <div id="register" ng-controller="accountRegisterController as vm" ng-show="accounts.mode === 'register'">
                             <form id="register-form" name="registerForm" novalidate ng-submit="vm.saveAccountAndSignIn(registerForm)" ng-validate="vm.validationOptions">
                                 <div class="wPop-content">
-                                    <label for="readonlySeed">WALLET SEED</label>
+                                    <label for="readonlySeed">SEED КОШЕЛЬКА</label>
                                     <br/>
                                     <textarea id="readonlySeed" rows="3" class="wInput" ng-model="vm.seed" ng-model-options="{ getterSetter: true }" readonly></textarea>
                                     <br/><br/>
-                                    <div>ADDRESS
+                                    <div>АДРЕС
                                         <br/>
                                         <span>{{accounts.displayAddress}}</span>
                                     </div>
@@ -149,15 +149,15 @@
 
                                     <div class="form-field">
                                         <label for="walletName">
-                                        NAME<span class="infoSpan" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="It is possible to assign a name to your account(s)
+                                        ИМЯ<span class="infoSpan" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="Вы можете присваивать имена вашим аккаунтам,
                                                 <br/>
-                                                in order to make them more memorable, feel
+                                                чтобы сделать их более запоминающимися,
                                                 <br/>
-                                                free to use the field below to do so.
+                                                используйте для этого поле внизу.
                                                 <br/><br/>
-                                                <i>NOTE: This is optional, the accounts do not forcefully
+                                                <i>Это опционально, не обязательно
                                                 <br/>
-                                                need to have assigned a name.</i>"></span>
+                                                называть ваш аккаунт.</i>"></span>
                                         <br/>
                                         </label>
                                         <input type="text" id="walletName" name="walletName" class="wInput" ng-model="vm.name" focus-me="accounts.mode === 'register'"/>
@@ -165,49 +165,47 @@
                                     <br/>
                                     <div class="form-field">
                                         <label for="walletPassword">
-                                        PASSWORD<span class="infoSpan" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="Used to encrypt your wallet seed, the password
+                                        ПАРОЛЬ<span class="infoSpan" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="Используется для шифрования вашего SEED,
                                                 <br/>
-                                                will be prompted at the time of login.
+                                                пароль будет запрашиваться при входе в аккаунт.
                                                 <br/><br/>
-                                                It is imperative that the user keeps it in a safe
-                                                <br/>
-                                                place at all times."></span>
+                                                Обязательно храните его в безопасном месте."></span>
                                         </label>
                                         <br/>
                                         <input type="password" id="walletPassword" name="walletPassword" class="wInput" ng-model="vm.password"/>
                                     </div>
                                     <br/>
                                     <div class="form-field">
-                                        <label for="walletPasswordConfirm">REPEAT PASSWORD</label>
+                                        <label for="walletPasswordConfirm">ПОВТОРИТЕ ПАРОЛЬ</label>
                                         <br/>
                                         <input type="password" id="walletPasswordConfirm" name="walletPasswordConfirm" class="wInput" ng-model="vm.confirmPassword"/>
                                     </div>
                                     <br/>
 
-                                    <button class="wButton fade" type="submit">REGISTER</button>
+                                    <button class="wButton fade" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
                                     <span class="divider-2"></span>
-                                    <button class="wButton fade" type="reset" ng-click="vm.cancel()">CANCEL</button>
+                                    <button class="wButton fade" type="reset" ng-click="vm.cancel()">ОТМЕНА</button>
                                 </div>
                             </form>
                         </div>
                         <!-- log in to selected account -->
                         <div id="account-login" ng-controller="accountLoginController as vm" ng-show="accounts.mode === 'login'">
                             <form id="login-form">
-                                <div>ACCOUNT
+                                <div>АККАУНТ
                                     <br/>
                                     <span>{{accounts.displayAddress}}</span>
                                 </div>
                                 <br/>
 
-                                <label for="accountPassword">PASSWORD</label>
+                                <label for="accountPassword">ПАРОЛЬ</label>
                                 <br/>
 
                                 <input type="password" id="accountPassword" class="wInput" ng-model="vm.password" focus-me="accounts.mode === 'login'"/>
                                 <br/><br/>
 
-                                <button class="wButton fade" ng-click="vm.signIn()">LOG IN</button>
+                                <button class="wButton fade" ng-click="vm.signIn()">ВОЙТИ</button>
                                 <span class="divider-2"></span>
-                                <button class="wButton fade" ng-click="vm.cancel()">CANCEL</button>
+                                <button class="wButton fade" ng-click="vm.cancel()">ОТМЕНА</button>
                             </form>
                         </div>
                     </div>
@@ -237,45 +235,38 @@
 
         <!-- HEADER -->
         <header class="fFade noSelect" ng-controller="mainMenuController as menu">
-            <img id="topLogoH" src="img/topleftlogo_hor.svg" alt="Waves platform logo horizontal" />
             <div id="logoNversion2">
                 <img src="img/pr_logo.svg" />
                 <p ng-class='{testnet: isTestnet()}'>{{::home.title}} <span class="wlcversion">{{::home.version}}</span></p>
             </div>
-            <span id="version" class="centerIt">Address:
-                <span id="wavesAccountAddress" class="clipSpan" tooltipster tooltip-theme="tooltipster-theme3" title="Copy the address to clipboard." ngclipboard data-clipboard-text="{{::menu.address}}" ngclipboard-success="clipboardOk()">{{::menu.address}}</span>
+            <span id="version" class="centerIt">Адрес:
+                <span id="wavesAccountAddress" class="clipSpan" tooltipster tooltip-theme="tooltipster-theme3" title="Скопировать адрес в буфер обмена." ngclipboard data-clipboard-text="{{::menu.address}}" ngclipboard-success="clipboardOk()">{{::menu.address}}</span>
                 <span class="divider-2"></span>
-                <span class="inlineParagraph">Block:</span> <span id="blockheight">{{menu.blockHeight}}</span>
+                <span class="inlineParagraph">Блок:</span> <span id="blockheight">{{menu.blockHeight}}</span>
             </span>
 
             <div id="header-Iconset">
                 <a ng-click="menu.showBackupDialog()">
-                    <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-backup.svg" alt="Backup" title="Backup"/>
+                    <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-backup.svg" alt="Backup" title="Бэкап" />
                 </a>
-                <div id="header-wPop-backup" waves-dialog global="true" on-dialog-ok="menu.backup()" ok-button-caption="COPY" cancel-button-caption="CLOSE">
-                    <h2 class="sectionHeader">ACCOUNT INFO BACKUP</h2>
-                    <p>This area contains your account's basic information. Click the <span class="fontBold">COPY</span> button in order to copy the contents to the clipboard or <span class="fontBold">CLOSE</span> to exit.</p></br>
+                <div id="header-wPop-backup" waves-dialog global="true" on-dialog-ok="menu.backup()" ok-button-caption="КОПИРОВАТЬ" cancel-button-caption="ЗАКРЫТЬ">
+                    <h2 class="sectionHeader">БЭКАП АККАУНТА</h2>
+                    <p>Здесь содержится основная информация вашего аккаунта. Нажмите на кнопку <span class="fontBold">КОПИРОВАТЬ</span>, чтобы скопировать данные в буфер обмена, или кнопку <span class="fontBold">ЗАКРЫТЬ</span> для выхода.</p></br>
                     <form id="backupForm">
                         <label for="seedBackup">SEED</label><br/>
                         <textarea id="seedBackup" class="wInput" rows="3" readonly ng-model="menu.seed"></textarea><br/>
-                        <label for="encodedSeedBackup">ENCODED SEED</label><br/>
+                        <label for="encodedSeedBackup">ЗАШИФРОВАННЫЙ SEED</label><br/>
                         <textarea id="encodedSeedBackup" class="wInput" rows="3" readonly ng-model="menu.encodedSeed"></textarea><br/>
-                        <label for="privateKeyBackup">PRIVATE KEY</label><br/>
+                        <label for="privateKeyBackup">ПРИВАТНЫЙ КЛЮЧ</label><br/>
                         <input id="privateKeyBackup" class="wInput" type="text" readonly ng-model="menu.privateKey"/><br/>
-                        <label for="publicKeyBackup">PUBLIC KEY</label><br/>
+                        <label for="publicKeyBackup">ПУБЛИЧНЫЙ КЛЮЧ</label><br/>
                         <input id="publicKeyBackup" class="wInput" type="text" readonly ng-model="menu.publicKey"/><br/>
-                        <label for="addressBackup">ADDRESS</label><br/>
+                        <label for="addressBackup">АДРЕС</label><br/>
                         <input id="addressBackup" class="wInput" type="text" readonly ng-model="menu.address"/>
                     </form>
                 </div>
-                <a ng-click="home.featureUnderDevelopment()">
-                    <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-preferences.svg" alt="Preferences" title="Preferences"/>
-                </a>
-                <a ng-click="home.featureUnderDevelopment()">
-                    <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-profile.svg" alt="User profile" title="User profile"/>
-                </a>
                 <a ng-click="home.logout()">
-                    <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-logout.svg" alt="Log out" title="Log out" />
+                    <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-logout.svg" alt="Log out" title="Выйти" />
                 </a>
             </div>
         </header>
@@ -286,12 +277,12 @@
             <section id="tabs" class="fFade noSelect">
                 <div id="tabs-Iconset" class="centerIt">
                     <span waves-tab on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab" page-id="wallet" caption="'Wallet tab'" tooltipster tooltip-html
-                          tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>Wallet</u></center><br/>Area containing the main wallets."></span>
+                          tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>Кошелёк</u></center><br/>Здесь находятся основные кошельки."></span>
                     <span waves-tab on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab" page-id="history" caption="'History tab'" tooltipster tooltip-html
-                          tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>History</u></center><br/>Access all your transaction records."></span>
-                    <span waves-tab on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab" page-id="community" caption="'Community tab'" tooltipster tooltip-html
-                          tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>Community tab</u></center><br/>Resources to learn more about Waves project such as <br/>forums, blogs, websites, etc."></span>
-              </div>
+                          tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>История</u></center><br/>Доступ к истории ваших транзакций."></span>
+                    <!--<span waves-tab on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab" page-id="community" caption="'Community tab'" tooltipster tooltip-html
+                          tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>Сообщество</u></center><br/>Узнайте больше про Upcoin с помощью<br/>форумов, блогов и сайтов."></span>-->
+                </div>
             </section>
 
             <section id="mainBody" class="wScroll">
@@ -301,39 +292,33 @@
                 <div id="mBB-wallet" class="mBB-content" ng-switch-when="wallet" ng-controller="walletListController as walletList">
 
                     <div class="noDisp" ng-controller="walletSendController as send">
-                        <div id="wB-butSend-WAV" waves-dialog ok-button-caption="SUBMIT" cancel-button-visible="false" on-dialog-ok="send.submitTransfer()">
+                        <div id="wB-butSend-WAV" waves-dialog ok-button-caption="ОТПРАВИТЬ" cancel-button-visible="false" on-dialog-ok="send.submitTransfer(form)">
                             <form id="send-waves-form" name="sendWavesForm" class="paymentForm" novalidate ng-validate="send.validationOptions">
-                                <h2 class="sectionHeader">SEND PAYMENT: {{send.currency}}</h2>
+                                <h2 class="sectionHeader">ОТПРАВИТЬ ПЛАТЁЖ: {{send.currency}}</h2>
                                 <table>
                                     <div class="balanceAmt">
-                                        <div ng-if="!send.sendingWaves"><p>Asset balance: </p><span class="balancewaves">{{send.assetBalance.formatAmount()}}</span><br/></div>
-                                        <p>Waves balance: </p><span class="balancewaves">{{send.wavesBalance.formatAmount(true)}}</span>
+                                        <div ng-if="!send.sendingWaves"><p>Баланс {{send.currency}}: </p><span class="balancewaves">{{send.assetBalance.formatAmount()}}</span><br/></div>
+                                        <p>Баланс Waves: </p><span class="balancewaves">{{send.wavesBalance.formatAmount(true)}}</span>
                                     </div>
-                                    <thead>
-                                    <tr>
-                                        <th>DESCRIPTION</th>
-                                        <th>INPUT</th>
-                                    </tr>
-                                    </thead>
                                     <tbody>
                                     <tr>
-                                        <td>Recipient's Address</td>
+                                        <td>Адрес получателя</td>
                                         <td>
                                             <div class="form-field">
-                                                <input class="wInput form-control" name="sendRecipient" type="text" placeholder="Recipient" ng-model="send.recipient" />
+                                                <input class="wInput form-control" name="sendRecipient" type="text" placeholder="Получатель" ng-model="send.recipient" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Amount</td>
+                                        <td>Сумма</td>
                                         <td>
                                             <div class="form-field">
-                                                <input class="wInput form-control" name="sendAmount" type="text" placeholder="Amount" ng-model="send.amount" decimal-input-restrictor />
+                                                <input class="wInput form-control" name="sendAmount" type="text" placeholder="Сумма" ng-model="send.amount" decimal-input-restrictor />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Attachment</td>
+                                        <td>Сообщение</td>
                                         <td>
                                             <div class="form-field">
                                                 <textarea rows="2" class="wInput form-control" name="sendAttachment" ng-model="send.attachment"></textarea>
@@ -341,7 +326,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Fee</td>
+                                        <td>Комиссия</td>
                                         <td>
                                             <md-autocomplete md-input-name="sendFee" md-selected-item="send.autocomplete.selectedFee" md-search-text="send.autocomplete.searchText"
                                                              md-items="item in send.autocomplete.querySearch(send.autocomplete.searchText)"
@@ -388,22 +373,22 @@
                     </div>
 
 
-                    <div class="flex-container">
+                    <div class="flex-container walletBoxes">
                         <wallet-box class="walletBox" ng-repeat="w in walletList.wallets | filter:{hidden:'!'}" balance="w.balance" on-send="walletList.send(currency)"
                                     on-withdraw="walletList.withdraw(currency)" on-trade="walletList.trade(currency)"></wallet-box>
                     </div>
-                    <h2 class="sectionHeader">LATEST TRANSACTIONS</h2>
+                    <h2 class="sectionHeader">ПОСЛЕДНИЕ ТРАНЗАКЦИИ</h2>
                     <div id="wallet-transaction-history" class="wavesTable wScroll">
                         <table class="wavesTable-hover">
                             <thead>
                             <tr>
-                                <td>DATE</td>
-                                <td>TYPE</td>
-                                <td>NAME</td>
-                                <td>SENDER</td>
-                                <td>RECIPIENT</td>
-                                <td>FEE</td>
-                                <td>UNITS</td>
+                                <td>ДАТА</td>
+                                <td>ТИП</td>
+                                <td>НАЗВАНИЕ</td>
+                                <td>ОТПРАВИТЕЛЬ</td>
+                                <td>ПОЛУЧАТЕЛЬ</td>
+                                <td>КОМИССИЯ</td>
+                                <td>КОЛИЧЕСТВО</td>
                                 <td></td>
                             </tr>
                             </thead>
@@ -749,18 +734,18 @@
 
                 <!-- HISTORY TAB -->
                 <div id="mBB-history" class="mBB-content" ng-switch-when="history" ng-controller="historyController as history">
-                    <h2 class="sectionHeader">LATEST TRANSACTIONS</h2>
+                    <h2 class="sectionHeader">ПОСЛЕДНИЕ ТРАНЗАКЦИИ</h2>
                     <div id="full-transaction-history" class="wavesTable wScroll">
                         <table class="wavesTable-hover wScroll">
                             <thead>
                             <tr>
-                                <td>DATE</td>
-                                <td>TYPE</td>
-                                <td>NAME</td>
-                                <td>SENDER</td>
-                                <td>RECIPIENT</td>
-                                <td>FEE</td>
-                                <td>UNITS</td>
+                                <td>ДАТА</td>
+                                <td>ТИП</td>
+                                <td>НАЗВАНИЕ</td>
+                                <td>ОТПРАВИТЕЛЬ</td>
+                                <td>ПОЛУЧАТЕЛЬ</td>
+                                <td>КОМИССИЯ</td>
+                                <td>КОЛИЧЕСТВО</td>
                                 <td></td>
                             </tr>
                             </thead>
@@ -896,17 +881,17 @@
                 <!-- COMMUNITY TAB -->
                 <div id="mBB-community" class="mBB-content" ng-switch-when="community" ng-controller="communityController as community">
                     <!-- Temporary -->
-                    <p>DISCLAIMER: The Community tab will temporarily hold block information for testing purposes. After alpha phase this data  will be relocated inside the Preferences - Advanced area.</p>
-                    <h2 class="sectionHeader">LATEST BLOCKS INFORMATION</h2>
+                    <p>ПРЕДУПРЕЖДЕНИЕ: вкладка Сообщества будет временно содержать информацию о блоках в тестовых целях. После альфа-фазы эти данные будут перемещены в раздел Настройки - Продвинутые.</p>
+                    <h2 class="sectionHeader">ИНФОРМАЦИЯ О ПОСЛЕДНИХ БЛОКАХ</h2>
                     <p class="centerIt">
                     <div id="latestBlocks" class="wavesTable wScroll" >
                         <table>
                             <thead>
                             <tr class="fade">
-                                <td>HEIGHT</td>
-                                <td>DATE</td>
-                                <td>TRANSACTIONS</td>
-                                <td>GENERATOR</td>
+                                <td>ВЫСОТА</td>
+                                <td>ДАТА</td>
+                                <td>ТРАНЗАКЦИИ</td>
+                                <td>ГЕНЕРАТОР</td>
                             </tr>
                             </thead>
                             <tbody id="latestBlocksTable">

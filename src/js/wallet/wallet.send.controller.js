@@ -2,12 +2,14 @@
     'use strict';
 
     var DEFAULT_FEE_AMOUNT = '0.001';
+    var MINIMUM_ASSET_FEE = '0.001';
+    var FEE_CURRENCY = Currency.WAV;
 
-    function WavesWalletSendController ($scope, $timeout, constants, events, autocomplete,
-                                        applicationContext, apiService, dialogService,
-                                        transactionBroadcast, assetService, notificationService, formattingService) {
+    function WavesWalletSendController($scope, $timeout, constants, events, autocomplete,
+                                       applicationContext, apiService, dialogService,
+                                       transactionBroadcast, assetService, notificationService, formattingService) {
         var send = this;
-        var minimumFee = new Money(constants.MINIMUM_TRANSACTION_FEE, Currency.WAV);
+        var minimumFee = new Money(MINIMUM_ASSET_FEE, FEE_CURRENCY);
 
         send.autocomplete = autocomplete;
         send.validationOptions = {
@@ -24,7 +26,7 @@
                 },
                 sendFee: {
                     required: true,
-                    decimal: Currency.WAV.precision,
+                    decimal: FEE_CURRENCY.precision,
                     min: minimumFee.toTokens()
                 },
                 sendAttachment: {
@@ -33,20 +35,20 @@
             },
             messages: {
                 sendRecipient: {
-                    required: 'Recipient account number is required'
+                    required: 'Номер аккаунта получателя обязателен'
                 },
                 sendAmount: {
-                    required: 'Amount to send is required'
+                    required: 'Сумма к отправлению обязательна'
                 },
                 sendFee: {
-                    required: 'Transaction fee is required',
-                    decimal: 'Transaction fee must be with no more than ' +
-                        minimumFee.currency.precision + ' digits after the decimal point (.)',
-                    min: 'Transaction fee is too small. It should be greater or equal to ' +
+                    required: 'Комиссия за транзакцию обязательна',
+                    decimal: 'Комиссия за транзакцию должна содержать не более, чем ' +
+                        minimumFee.currency.precision + ' знаков после разделителя (.)',
+                    min: 'Комиссия за транзакцию слишком мала. Она должна быть не меньше, чем ' +
                         minimumFee.formatAmount(true)
                 },
                 sendAttachment: {
-                    maxbytelength: 'Attachment is too long'
+                    maxbytelength: 'Сообщение слишком длинное'
                 }
             }
         };
@@ -109,7 +111,7 @@
                 return false;
 
             var amount = Money.fromTokens(send.amount, send.assetBalance.currency);
-            var transferFee = Money.fromTokens(send.autocomplete.getFeeAmount(), Currency.WAV);
+            var transferFee = Money.fromTokens(send.autocomplete.getFeeAmount(), FEE_CURRENCY);
             var paymentCost = transferFee;
             if (send.sendingWaves)
                 paymentCost = paymentCost.plus(amount);

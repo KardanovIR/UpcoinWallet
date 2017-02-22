@@ -43,15 +43,15 @@
         }
 
         function switchToListMode() {
-            accounts.caption = 'ACCOUNTS';
+            accounts.caption = 'АККАУНТЫ';
         }
 
         function switchToCreateSeedMode() {
-            accounts.caption = 'SET UP YOUR SEED';
+            accounts.caption = 'УСТАНОВИТЕ ВАШ SEED';
         }
 
         function switchToRegisterMode(seed) {
-            accounts.caption = 'REGISTER ACCOUNT';
+            accounts.caption = 'ЗАРЕГИСТРИРОВАТЬ АККАУНТ';
 
             var raw = cryptoService.buildRawAddressFromSeed(seed);
             accounts.displayAddress = raw;
@@ -60,7 +60,7 @@
         }
 
         function switchToLoginMode(account) {
-            accounts.caption = 'SIGN IN';
+            accounts.caption = 'ВОЙТИ';
             accounts.displayAddress = account.address;
             // setting an account which we would like to sign in
             loginContext.currentAccount = account;
