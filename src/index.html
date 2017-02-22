@@ -342,15 +342,15 @@
                                 </table>
                             </form>
                         </div>
-                        <div id="send-payment-confirmation" waves-dialog ok-button-caption="CONFIRM" ok-button-enabled="!send.broadcast.pending" on-dialog-ok="send.broadcastTransaction()">
+                        <div id="send-payment-confirmation" waves-dialog ok-button-caption="ОТПРАВИТЬ" cancel-button-caption="ОТМЕНА" ok-button-enabled="!send.broadcast.pending" on-dialog-ok="send.broadcastTransaction()">
                             <div class="dialog-confirmation">
-                                <p class="dialog-text">You are sending <span class="confirmation-value">{{send.confirm.amount.value}}</span>
-                                    <span class="confirmation-value">{{send.confirm.amount.currency}}</span> with
+                                <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{send.confirm.amount.value}}</span>
+                                    <span class="confirmation-value">{{send.confirm.amount.currency}}</span> с
                                     <span class="confirmation-value">{{send.confirm.fee.value}}</span>
-                                    <span class="confirmation-value">{{send.confirm.fee.currency}}</span> fee to the address<br/>
+                                    <span class="confirmation-value">{{send.confirm.fee.currency}}</span> комиссии на адрес<br/>
                                     <span class="confirmation-value">{{send.confirm.recipient}}</span>
                                 </p>
-                                <p class="dialog-text">Please <span class="fontBold"> CONFIRM </span>to execute or <span class="fontBold"> CANCEL </span> to discard.</p>
+                                <p class="dialog-text">Пожалуйста, нажмите <span class="fontBold">ОТПРАВИТЬ</span> для подтверждения или <span class="fontBold">ОТМЕНА</span>, чтобы вернуться.</p>
                             </div>
                         </div>
                     </div>
