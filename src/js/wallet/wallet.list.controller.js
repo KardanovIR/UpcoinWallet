@@ -21,7 +21,7 @@
 
         walletList.wallets = [
             {
-                balance: new Money(0, Currency.EUR)
+                balance: new Money(0, Currency.UPC)
             },
             {
                 balance: new Money(0, Currency.BTC)
@@ -122,6 +122,8 @@
                 Currency.USD.id = '2aSqCbvCTgvCpwkGsk4mea4tCLG4Zgp69aQDhHNvRUZv';
                 Currency.CNY.id = 'D2MNuUyA38pSKoV7F7vpS15Uhw9nw5qfbrGUfCLRNuRo';
                 Currency.BTC.id = '7g151iXK8fyxB5sBUHkwQNXhVBuXdbK8ftPB3h1NrrYV';
+                Currency.UPC.id = '2sn59CFYKBwQYGfZuzwGEJehieWpYnHZpfw6fNtpjUAx';
+                // Currency.UPC.id = '6MPKrD5B7GrfbciHECg1MwdvRUhRETApgNZspreBJ8JL';
             }
         }
     }
