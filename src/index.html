@@ -393,7 +393,7 @@
                             </tr>
                             </thead>
                             <tbody id="walletTransactionhistory">
-                                <tr ng-repeat="tx in walletList.transactions | orderBy:'timestamp':true | limitTo:10 | transaction track by tx.timestamp" ng-class="{'wavesTable-txUnc': tx.unconfirmed, 'wavesTable-txIn': !tx.formatted.isOutgoing, 'wavesTable-txOut': tx.formatted.isOutgoing}">
+                                <tr ng-repeat="tx in walletList.transactions | orderBy:'timestamp':true | limitTo:50 | transaction track by tx.timestamp" ng-class="{'wavesTable-txUnc': tx.unconfirmed, 'wavesTable-txIn': !tx.formatted.isOutgoing, 'wavesTable-txOut': tx.formatted.isOutgoing}">
                                     <td>{{tx.formatted.datetime}}</td>
                                     <td>{{tx.formatted.type}}</td>
                                     <td>{{tx.formatted.asset}}</td>

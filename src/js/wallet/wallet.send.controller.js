@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    var DEFAULT_FEE_AMOUNT = '0.001';
-    var MINIMUM_ASSET_FEE = '0.001';
-    var FEE_CURRENCY = Currency.WAV;
+    var DEFAULT_FEE_AMOUNT = '0.01';
+    var MINIMUM_ASSET_FEE = '0.01';
+    var FEE_CURRENCY = Currency.UPC;
 
     function WavesWalletSendController($scope, $timeout, constants, events, autocomplete,
                                        applicationContext, apiService, dialogService,
