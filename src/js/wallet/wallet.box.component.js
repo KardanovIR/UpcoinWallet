@@ -9,6 +9,10 @@
             image: 'wB-bg-WAV.svg',
             displayName: Currency.WAV.displayName
         };
+        mapping[Currency.UPC.displayName] = {
+            image: 'wB-bg-UPC.svg',
+            displayName: Currency.UPC.displayName
+        };
         mapping[Currency.BTC.displayName] = {
             image: 'wB-bg-BTC.svg',
             displayName: Currency.BTC.displayName

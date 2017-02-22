@@ -292,7 +292,7 @@
                 <div id="mBB-wallet" class="mBB-content" ng-switch-when="wallet" ng-controller="walletListController as walletList">
 
                     <div class="noDisp" ng-controller="walletSendController as send">
-                        <div id="wB-butSend-WAV" waves-dialog ok-button-caption="ОТПРАВИТЬ" cancel-button-visible="false" on-dialog-ok="send.submitTransfer(form)">
+                        <div id="wB-butSend-WAV" waves-dialog ok-button-caption="ОТПРАВИТЬ" cancel-button-visible="false" on-dialog-ok="send.submitTransfer()">
                             <form id="send-waves-form" name="sendWavesForm" class="paymentForm" novalidate ng-validate="send.validationOptions">
                                 <h2 class="sectionHeader">ОТПРАВИТЬ ПЛАТЁЖ: {{send.currency}}</h2>
                                 <table>
