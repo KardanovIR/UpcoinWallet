@@ -23,15 +23,15 @@
             },
             messages: {
                 walletName: {
-                    maxlength: 'A wallet name is too long. Maximum name length is ' +
-                        WALLET_NAME_MAXLENGTH + ' characters'
+                    maxlength: 'Имя кошелька слишком длинное. Максимальная длина имени — ' +
+                        WALLET_NAME_MAXLENGTH + ' символов'
                 },
                 walletPassword: {
-                    required: 'A password is required to store your seed safely',
-                    minlength: 'Password must be 8 characters or longer'
+                    required: 'Пароль нужен для сохранения вашего SEED в безопасности',
+                    minlength: 'Пароль должен содержать хотя бы 8 символов'
                 },
                 walletPasswordConfirm: {
-                    equalTo: 'Passwords do not match'
+                    equalTo: 'Пароли не совпадают'
                 }
             }
         };

@@ -68,14 +68,14 @@ function AngularApplicationConfig($provide, $compileProvider, $validatorProvider
     });
     $validatorProvider.addMethod('address', function (value, element) {
         return this.optional(element) || __mockValidateAddress(value);
-    }, 'Account number must be a sequence of 35 alphanumeric characters with no spaces, ' +
-        'optionally starting with \'1W\'');
+    }, 'Номер аккаунта должен быть последовательностью из 35 буквенно-числовых символов, без пробелов, ' +
+        'опционально начинающейся с \'1W\'');
     $validatorProvider.addMethod('decimal', function (value, element, params) {
         var maxdigits = angular.isNumber(params) ? params : Currency.WAV.precision;
 
         var regex = new RegExp('^(?:-?\\d+)?(?:\\.\\d{0,' + maxdigits + '})?$');
         return this.optional(element) || regex.test(value);
-    }, 'Amount is expected with a dot (.) as a decimal separator with no more than {0} fraction digits');
+    }, 'Сумма должна содержать точку (.) в качестве десятичного разделителя с не более, чем {0} знаков после нуля');
     $validatorProvider.addMethod('password', function (value, element) {
         if (this.optional(element))
             return true;
@@ -85,28 +85,28 @@ function AngularApplicationConfig($provide, $compileProvider, $validatorProvider
         var containsLowercase = /[a-z]/.test(value);
 
         return containsDigits && containsUppercase && containsLowercase;
-    }, 'The password is too weak. A good password must contain at least one digit, ' +
-        'one uppercase and one lowercase letter');
+    }, 'Пароль слишком слабый. Хороший пароль должен содержать как минимум, одну цифру, ' +
+        'одну заглавную и одну строчную букву.');
     $validatorProvider.addMethod('minbytelength', function (value, element, params) {
         if (this.optional(element))
             return true;
 
         if (!angular.isNumber(params))
-           throw new Error('minbytelength parameter must be a number. Got ' + params);
+           throw new Error('Параметр minbytelength должен быть числов. Получено: ' + params);
 
         var minLength = params;
         return converters.stringToByteArray(value).length >= minLength;
-    }, 'String is too short. Please add more characters.');
+    }, 'Строка слишком короткая. Пожалуйста, добавьте больше символов.');
     $validatorProvider.addMethod('maxbytelength', function (value, element, params) {
         if (this.optional(element))
             return true;
 
         if (!angular.isNumber(params))
-            throw new Error('maxbytelength parameter must be a number. Got ' + params);
+            throw new Error('Параметр maxbytelength должен быть числов. Получено: ' + params);
 
         var maxLength = params;
         return converters.stringToByteArray(value).length <= maxLength;
-    }, 'String is too long. Please remove some characters.');
+    }, 'Строка слишком длинная. Пожалуйста, удалите часть символов.');
 }
 
 AngularApplicationConfig.$inject = ['$provide', '$compileProvider', '$validatorProvider', '$qProvider',
