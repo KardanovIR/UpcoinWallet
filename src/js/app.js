@@ -33,12 +33,12 @@ function AngularApplicationConfig($provide, $compileProvider, $validatorProvider
     $provide.constant(networkConstants,
         angular.extend(networkConstants, {
             NETWORK_NAME: 'devel',
-            NETWORK_CODE: 'T'
+            NETWORK_CODE: 'D'
         }));
     $provide.constant(applicationSettings,
         angular.extend(applicationSettings, {
             CLIENT_VERSION: '0.4.1a',
-            NODE_ADDRESS: 'http://52.30.47.67:6869'
+            NODE_ADDRESS: 'http://34.251.200.245:6869'
         }));
 
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|local|data|file|chrome-extension):/);

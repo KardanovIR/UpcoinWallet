@@ -87,7 +87,7 @@
 
         function formatFee(transaction) {
             var currency = Currency.WAV;
-            var assetId = transaction.feeAssetId;
+            var assetId = transaction.feeAsset;
             if (assetId) {
                 var asset = applicationContext.cache.assets[assetId];
                 if (asset)
