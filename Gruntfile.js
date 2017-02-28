@@ -42,7 +42,7 @@ module.exports = function (grunt) {
             editor: "gedit --new-window -s ",
             configurations: {
                 testnet: {
-                    name: 'devnet',
+                    name: 'testnet',
                     code: 'D',
                     server: 'http://34.251.200.245:6869'
                 },
