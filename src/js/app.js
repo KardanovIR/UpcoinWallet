@@ -69,7 +69,7 @@ function AngularApplicationConfig($provide, $compileProvider, $validatorProvider
     $validatorProvider.addMethod('address', function (value, element) {
         return this.optional(element) || __mockValidateAddress(value);
     }, 'Номер аккаунта должен быть последовательностью из 35 буквенно-числовых символов, без пробелов, ' +
-        'опционально начинающейся с \'1W\'');
+        'и может начинаться с \'1W\'');
     $validatorProvider.addMethod('decimal', function (value, element, params) {
         var maxdigits = angular.isNumber(params) ? params : Currency.WAV.precision;
 
@@ -85,14 +85,14 @@ function AngularApplicationConfig($provide, $compileProvider, $validatorProvider
         var containsLowercase = /[a-z]/.test(value);
 
         return containsDigits && containsUppercase && containsLowercase;
-    }, 'Пароль слишком слабый. Хороший пароль должен содержать как минимум, одну цифру, ' +
+    }, 'Пароль слишком слабый. Хороший пароль должен содержать, как минимум, одну цифру, ' +
         'одну заглавную и одну строчную букву.');
     $validatorProvider.addMethod('minbytelength', function (value, element, params) {
         if (this.optional(element))
             return true;
 
         if (!angular.isNumber(params))
-           throw new Error('Параметр minbytelength должен быть числов. Получено: ' + params);
+           throw new Error('Параметр minbytelength должен быть числом. Получено: ' + params);
 
         var minLength = params;
         return converters.stringToByteArray(value).length >= minLength;
@@ -102,7 +102,7 @@ function AngularApplicationConfig($provide, $compileProvider, $validatorProvider
             return true;
 
         if (!angular.isNumber(params))
-            throw new Error('Параметр maxbytelength должен быть числов. Получено: ' + params);
+            throw new Error('Параметр maxbytelength должен быть числом. Получено: ' + params);
 
         var maxLength = params;
         return converters.stringToByteArray(value).length <= maxLength;
