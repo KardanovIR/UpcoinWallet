@@ -286,7 +286,6 @@ body {
     max-height: 1080px;
     min-height: 320px;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 
@@ -520,7 +519,7 @@ body {
 .wavesAccounts > p {
     /* Temporary fix - Check if this problem
     comes from Angular ng template side */
-    margin-top: -35px;
+    margin-top: -20px;
     padding-top: 0px;
 }
 
