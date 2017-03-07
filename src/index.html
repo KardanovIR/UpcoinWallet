@@ -298,7 +298,7 @@
                                 <table>
                                     <div class="balanceAmt">
                                         <div ng-if="!send.sendingWaves"><p>Баланс {{send.currency}}: </p><span class="balancewaves">{{send.assetBalance.formatAmount()}}</span><br/></div>
-                                        <p>Баланс Waves: </p><span class="balancewaves">{{send.wavesBalance.formatAmount(true)}}</span>
+                                        <p>Баланс {{send.wavesBalance.currency.displayName}}: </p><span class="balancewaves">{{send.wavesBalance.formatAmount(true)}}</span>
                                     </div>
                                     <tbody>
                                     <tr>

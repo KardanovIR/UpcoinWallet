@@ -80,7 +80,7 @@
         $scope.$on(events.WALLET_SEND, function (event, eventData) {
             send.wavesBalance = eventData.wavesBalance;
             send.assetBalance = eventData.assetBalance;
-            send.sendingWaves = eventData.assetBalance.currency === Currency.WAV;
+            send.sendingWaves = eventData.assetBalance.currency.id === Currency.UPC.id;
             send.currency = eventData.assetBalance.currency.displayName;
 
             // update validation options and check how it affects form validation

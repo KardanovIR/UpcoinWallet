@@ -15,7 +15,7 @@
 
         function findWalletByCurrency(currency) {
             return _.find(walletList.wallets, function (w) {
-                return w.balance.currency === currency;
+                return w.balance.currency.id === currency.id;
             });
         }
 
@@ -48,11 +48,11 @@
 
         function send (currency) {
             var assetWallet = findWalletByCurrency(currency);
-            var wavesWallet = findWalletByCurrency(Currency.WAV);
+            var upcoinWallet = findWalletByCurrency(Currency.UPC);
 
             $scope.$broadcast(events.WALLET_SEND, {
                 assetBalance: assetWallet.balance,
-                wavesBalance: wavesWallet.balance
+                wavesBalance: upcoinWallet.balance
             });
         }
 
@@ -122,7 +122,7 @@
                 Currency.USD.id = '2aSqCbvCTgvCpwkGsk4mea4tCLG4Zgp69aQDhHNvRUZv';
                 Currency.CNY.id = 'D2MNuUyA38pSKoV7F7vpS15Uhw9nw5qfbrGUfCLRNuRo';
                 Currency.BTC.id = '7g151iXK8fyxB5sBUHkwQNXhVBuXdbK8ftPB3h1NrrYV';
-                Currency.UPC.id = '8AebmjH8YNX2K218PqfXVJVYZqYNTGszrqjDCCmpz3mB';
+                Currency.UPC.id = '6MPKrD5B7GrfbciHECg1MwdvRUhRETApgNZspreBJ8JL';
             }
         }
     }
