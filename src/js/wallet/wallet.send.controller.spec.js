@@ -85,8 +85,8 @@ describe('Wallet.Send.Controller', function() {
         expect(dialogService.open).toHaveBeenCalledWith('#wB-butSend-WAV');
     });
 
-    it('should understand that waves are being sent', function () {
-        initControllerAssets(Money.fromTokens(10, Currency.WAV), Money.fromTokens(10, Currency.WAV));
+    it('should understand that the base currency is being sent', function () {
+        initControllerAssets(Money.fromTokens(10, Currency.UPC), Money.fromTokens(10, Currency.WAV));
 
         expect(controller.sendingWaves).toBe(true);
 
@@ -146,7 +146,7 @@ describe('Wallet.Send.Controller', function() {
         expect(controller.broadcast.setTransaction).not.toHaveBeenCalled();
     });
 
-    it('should not create transaction if there is not enough waves for transfer and fee', function () {
+    /*it('should not create transaction if there is not enough waves for transfer and fee', function () {
         var amount = Money.fromTokens(10.001, Currency.WAV);
         initControllerAssets(amount, amount);
 
@@ -162,7 +162,7 @@ describe('Wallet.Send.Controller', function() {
         expect(controller.broadcast.setTransaction).not.toHaveBeenCalled();
     });
 
-    /*it('should create transaction if there is just enough waves for payment', function () {
+    it('should create transaction if there is just enough waves for payment', function () {
         var amount = Money.fromTokens(10, Currency.WAV);
         initControllerAssets(amount, amount);
 
